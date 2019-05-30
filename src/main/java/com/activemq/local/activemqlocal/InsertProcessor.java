@@ -51,9 +51,9 @@ public class InsertProcessor implements org.apache.camel.Processor {
 		answer.put("amount", amount);
 		answer.put("transId", transId);
 
-		String insertQuery = "sql:insert into table transaction (transId, effectiveEntryDateTime,processingDateTime,debitAccountNumber,creditAccountNumber,amount)"
-				+ " values (" + transId + "," + effectiveEntryDateTime + "," + processingDateTime + ","
-				+ debitAccountNumber + "," + creditAccountNumber + "," + amount + ")";
+		String insertQuery = "insert into transaction (TRANSID, EFFECTIVEENTRYDATETIME,PROCESSINGDATETIME,DEBITACCOUNTNUMBER,CREDITACCOUNTNUMBER,AMOUNT)"
+				+ " values ('" + transId + "','" + effectiveEntryDateTime + "','" + processingDateTime + "','"
+				+ debitAccountNumber + "','" + creditAccountNumber + "'," + amount + ")";
 		System.out.println("Insert Query is : " + insertQuery);
 		exchange.getIn().setBody(insertQuery);
 	}

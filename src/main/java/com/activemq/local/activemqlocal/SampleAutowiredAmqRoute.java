@@ -38,8 +38,8 @@ public class SampleAutowiredAmqRoute extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		from("jms:queue:inbound.queue")
-//		.process(new InsertProcessor()).to("jdbc:dataSource");
-        .to("jms:queue:outbound.queue");
+		.process(new InsertProcessor()).to("jdbc:dataSource");
+//        .to("jms:queue:outbound.queue");
 
 	}
 
